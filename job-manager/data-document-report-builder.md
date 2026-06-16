@@ -45,7 +45,7 @@ HotWax needed a way to let trusted users compose OMS business data safely using 
 
 Job Manager now treats DataDocuments as a first-class report-building surface.
 
-Users can open a dedicated Data Documents section, browse existing document definitions, create a new document, select a primary entity, add fields from the primary entity or related entities, define aliases, choose field functions such as sum or average where the report needs measures, add structured conditions, validate the shape, preview live results, queue exports, schedule recurring email exports, and review export history.
+Users can open a dedicated Data Documents section, browse existing document definitions, create a new document, select a primary entity, add fields from the primary entity or related entities, define aliases, choose field functions such as sum or average (`avg`) where the report needs measures, add structured conditions, validate the shape, preview live results, queue exports, schedule recurring email exports, and review export history.
 
 The graph-first builder makes a DataDocument easier to understand. Instead of treating a report as a flat list of fields, the builder shows the primary entity, related entities, selected fields, conditions, validation issues, preview data, usage, and export history in one detail workspace. Users can move between graph, fields, conditions, preview, usage, issues, and export history without losing the context of the report they are editing.
 
@@ -88,7 +88,7 @@ The current Job Manager Data Document report builder includes:
 - Field and condition CRUD for DataDocument definitions
 - Direct field and relation-path field support
 - Field aliases and selected output fields
-- Field functions for measures and aggregations such as sums and averages
+- Field functions for measures and aggregations such as count, count distinct, sum, average (`avg`), minimum, and maximum
 - Condition authoring and validation feedback
 - Searchable field picker and metadata-assisted authoring
 - Preview table with runtime filters, selected fields, sort, distinct mode, pagination, copy, and CSV actions
@@ -147,7 +147,7 @@ As the metadata layer matures, the builder should guide users through verified r
 
 ### How do field functions work?
 
-DataDocument fields can use functions such as sum and average to turn raw fields into report measures. That matters when a report is not just listing records, but answering questions like total reserved quantity, average processing time, total failed messages, or aggregate demand by facility, channel, or product.
+DataDocument fields can use functions such as count, count distinct, sum, average (`avg`), minimum, and maximum to turn raw fields into report measures. That matters when a report is not just listing records, but answering questions like total reserved quantity, average processing time, total failed messages, or aggregate demand by facility, channel, or product.
 
 The important product idea is that users should be able to define both dimensions and measures inside the report definition. A user can choose fields that describe the row, such as facility or product store, and fields that calculate values, such as summed quantity or averaged duration.
 
@@ -261,7 +261,7 @@ The user manual should cover:
 - Creating a DataDocument
 - Choosing a primary entity
 - Adding direct fields and relation-path fields
-- Applying field functions such as sum and average
+- Applying field functions such as count, count distinct, sum, average (`avg`), minimum, and maximum
 - Adding aliases and conditions
 - Reviewing validation issues
 - Previewing results
@@ -279,7 +279,7 @@ The design document should cover:
 
 - DataDocument lifecycle from definition to preview to export
 - DataDocument records, fields, conditions, relation aliases, links, user groups, feeds, and SystemMessages
-- Field function support for dimensions, measures, sums, averages, and other aggregations
+- Field function support for dimensions, measures, count, count distinct, sum, average (`avg`), minimum, maximum, and other aggregations
 - Graph builder projection model
 - Field and relationship metadata requirements
 - Preview runtime contract
