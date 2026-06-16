@@ -1,14 +1,4 @@
-# Job Manager Data Document / Report Builder - PR FAQ
-
-## Source Notes
-
-- Frontend app: `hotwax/job-manager`
-- Job Manager PRs: `hotwax/job-manager#924` and `hotwax/job-manager#911`
-- Job Manager docs: `docs/data-documents.md` and `docs/data-document-graph-builder.md`
-- Backend contracts: `hotwax-maarg-util` DataDocument CRUD, DataDocument preview, export queueing, scheduled service jobs, SystemMessage export history, and DataFeed endpoints
-- OMS preview runtime: `POST /rest/s1/oms/dataDocumentView`
-- OMS event-streaming pattern: Moqui DataDocuments and DataFeeds used for committed-state event payloads and webhook-style dispatch
-- Requirements context: operational report building, scheduled exports, file/export history, BI access, data warehouse feeds, and future realtime operational dashboards
+# Job Manager DataDocument Report Builder - PR FAQ
 
 ## Press Release
 
@@ -252,39 +242,3 @@ The main risks are governance and overreach.
 If the builder exposes too much low-level entity complexity, it can become hard to use. If it exposes too little, it becomes another fixed report tool. If realtime feeds are added without schema control, destination management, retry visibility, and permissions, they can become fragile integrations.
 
 The right path is to keep the report builder practical now, then add feed authoring, delivery targets, and realtime monitoring as explicit product layers.
-
-### What should be documented in the user manual?
-
-The user manual should cover:
-
-- Opening the Data Documents catalog
-- Creating a DataDocument
-- Choosing a primary entity
-- Adding direct fields and relation-path fields
-- Applying field functions such as count, count distinct, sum, average (`avg`), minimum, and maximum
-- Adding aliases and conditions
-- Reviewing validation issues
-- Previewing results
-- Applying runtime filters and sort rules
-- Exporting CSV
-- Reviewing export history
-- Downloading completed exports
-- Scheduling email exports
-- Pausing or resuming scheduled exports
-- Understanding the difference between preview filters and export behavior
-
-### What should be documented in the design document?
-
-The design document should cover:
-
-- DataDocument lifecycle from definition to preview to export
-- DataDocument records, fields, conditions, relation aliases, links, user groups, feeds, and SystemMessages
-- Field function support for dimensions, measures, count, count distinct, sum, average (`avg`), minimum, maximum, and other aggregations
-- Graph builder projection model
-- Field and relationship metadata requirements
-- Preview runtime contract
-- Export queueing and SystemMessage status lifecycle
-- Scheduled export service-job lifecycle
-- Export history and download flow
-- Permissions and report-sharing model
-- Future DataFeed authoring and realtime delivery architecture
